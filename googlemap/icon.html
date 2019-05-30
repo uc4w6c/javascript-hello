@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 500px;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAb1JPsriEszWeSvPggncHILjnbnz63fKY"></script>
+<script>
+
+    function initMap() {
+        var myLatLng = {lat: 35.658581, lng: 139.745433};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 14,
+            center: myLatLng
+        });
+
+        var imagePath = 'アイコン画像のパス';
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            icon: imagePath
+        });
+    }
+    initMap();
+
+</script>
+</body>
+</html>
