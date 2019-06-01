@@ -20,10 +20,14 @@ function initMap() {
       center: {lat: 35.665498, lng: 139.75964}
     });
 
-    var circle = new google.maps.Circle({
-      map: map ,
-      center: {lat: 35.665498, lng: 139.75964},
-      radius: 500,
+    var polygon = new google.maps.Polygon({
+	    map: map,
+	    paths:[
+        {lat: 35.672557, lng: 139.752634},
+        {lat: 35.669437, lng: 139.765691},
+        {lat: 35.660302, lng: 139.764317},
+        {lat: 35.665253, lng: 139.751786}
+	    ],
     });
 }
 </script>
