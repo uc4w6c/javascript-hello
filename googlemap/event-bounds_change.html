@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+#map {
+    height: 80%;
+}
+html, body {
+    height: 80%;
+    margin: 0;
+    padding: 0;
+}
+</style>
+<div id="map"></div>
+<div id="latlng"></div>
+<div id="zoom"></div>
+<script>
+function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: {lat: 35.665498, lng: 139.75964}
+    });
+
+    map.addListener('bounds_changed', function(e) {
+      document.getElementById("latlng").innerHTML = map.getCenter();
+      document.getElementById("zoom").innerHTML = map.getZoom();
+    });
+}
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAb1JPsriEszWeSvPggncHILjnbnz63fKY&callback=initMap"></script>
+</body>
+</html>
