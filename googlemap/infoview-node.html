@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 500px;
+            width: 50%;
+        }
+        .box {
+            padding: 0.5em 1em;
+            color: #232323;
+            background: #fff8e8;
+            border-left: solid 10px #ffc06e;
+        }
+        .box p {
+            margin: 0; 
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAb1JPsriEszWeSvPggncHILjnbnz63fKY"></script>
+<script>
+
+    function initMap() {
+        var myLatLng = {lat: 35.665498, lng: 139.75964};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 14,
+            center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map
+        });
+
+        var box = '<div class="box">' + 
+                    '<p>新橋駅</p>' +
+                  '</div>'
+        var infowindow = new google.maps.InfoWindow({
+            content: box
+        });
+        infowindow.open(map, marker);
+    }
+    initMap();
+
+</script>
+</body>
+</html>
