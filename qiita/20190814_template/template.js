@@ -1,4 +1,4 @@
-let make_list = function() {
+let listRefresh = function() {
 
     let json = [
             { name: "鈴木 太郎", address: "東京都千代田区1-1"},
@@ -7,12 +7,13 @@ let make_list = function() {
 
     let template = document.getElementById('test_template');
 
-    let example = document.getElementById('example')
+    let example = document.getElementById('example').querySelector('ul');
+    example.textContent = null;
 
     json.forEach((val) => {
         let clone = document.importNode(template.content, true);
-        clone.querySelector('li.item p.text span.value').textContent = val.aa;
-        clone.querySelector('li.item p.text span.address').textContent = val.bb;
+        clone.querySelector('li.item p.text span.name').textContent = val.name;
+        clone.querySelector('li.item p.text span.address').textContent = val.address;
         example.appendChild(clone);
     });
 }
