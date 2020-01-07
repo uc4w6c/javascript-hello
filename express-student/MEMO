@@ -1,3 +1,16 @@
 ## 試しにやりたいこと
 module.export
 Object.create
+Object.defineProperty()
+
+
+app[method]
+　これでメソッド追加される？
+
+
+### httpサーバをプレーンなjavascriptで実現
+
+app.listen = function listen() {
+  var server = http.createServer(this);
+  return server.listen.apply(server, arguments);
+};
